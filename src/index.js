@@ -7,3 +7,7 @@ const pageTitle = React.createElement(
   'Заголовок страницы',
 );
 
+ReactDom.render(
+  pageTitle,
+  document.getElementById('root'),
+);
