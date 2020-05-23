@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 
-export class App extends Component {
-  state = {
-    counter: 0,
-  }
+import { Counter } from './Counter';
 
-  handleClick = (event) => {
-    const operation = +event.target.dataset.operation;
-    
-    this.setState((prevState) => ({
-      counter: prevState.counter + operation,
-    }));
+export class App extends Component {
+  state = { isVisible: false };
+
+  handleToggle = () => {
+    this.setState({
+      isVisible: !this.state.isVisible,
+    });
   }
 
   render() {
-    const { counter } = this.state;
+    const { isVisible } = this.state;
 
     return (
       <div>
-        <p>Меняем состояние по кнопке:</p>
-        <button data-operation="-1" onClick={this.handleClick}>- 1</button>
-        {counter}
-        <button data-operation="+1" onClick={this.handleClick}>+ 1</button>
+        {isVisible && <Counter />}
+        <button onClick={this.handleToggle}>Toggle visibility</button>
       </div>
     );
   }
