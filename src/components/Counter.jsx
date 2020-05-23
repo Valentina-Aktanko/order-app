@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 export class Counter extends Component {
   state = {
     counter: 0,
-  }
+  };
+
+  interval = null;
 
   handleClick = (event) => {
     const operation = +event.target.dataset.operation;
@@ -14,9 +16,13 @@ export class Counter extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       console.log('Fired!');
     }, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
