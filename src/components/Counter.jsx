@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export class Counter extends Component {
   state = {
-    counter: 0,
+    counter: this.props.initial,
   };
 
   interval = null;
