@@ -16,7 +16,7 @@ export class App extends Component {
 
     return (
       <div>
-        {isVisible && <Counter initial="5" />}
+        {isVisible && <Counter initial={5} />}
         <button onClick={this.handleToggle}>Toggle visibility</button>
       </div>
     );
