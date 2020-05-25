@@ -6,6 +6,10 @@ export class Counter extends Component {
     initial: PropTypes.number,
   }
 
+  static defaultProps = {
+    initial: 0,
+  }
+
   state = {
     counter: this.props.initial,
   };
